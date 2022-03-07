@@ -1,4 +1,4 @@
-package com.example.hello.basic.response;
+package com.example.hello.servlet.basic.response;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

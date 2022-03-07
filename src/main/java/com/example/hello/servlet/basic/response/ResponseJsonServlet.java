@@ -1,6 +1,6 @@
-package com.example.hello.basic.response;
+package com.example.hello.servlet.basic.response;
 
-import com.example.hello.basic.HelloData;
+import com.example.hello.servlet.HelloData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.ServletException;

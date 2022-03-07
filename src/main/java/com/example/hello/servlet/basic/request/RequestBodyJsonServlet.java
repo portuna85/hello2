@@ -1,6 +1,6 @@
-package com.example.hello.basic.request;
+package com.example.hello.servlet.basic.request;
 
-import com.example.hello.basic.HelloData;
+import com.example.hello.servlet.HelloData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.util.StreamUtils;
 
