@@ -13,8 +13,8 @@ import java.io.IOException;
 @WebServlet(name = "ResponseJsonServlet", urlPatterns = "/reponse-json")
 public class ResponseJsonServlet extends HttpServlet {
     private ObjectMapper objectMapper = new ObjectMapper();
-    @Override
 
+    @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Content-Type : application/json
         response.setContentType("application/json");
@@ -23,7 +23,7 @@ public class ResponseJsonServlet extends HttpServlet {
         helloData.setUsername("JSBAE");
         helloData.setAge(24);
 
-        // {"username":"kim", "age":35}
+        // {"username":"JSBAE", "age":24}
         String result = objectMapper.writeValueAsString(helloData);
         response.getWriter().write(result);
     }

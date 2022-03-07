@@ -17,8 +17,7 @@ import java.io.IOException;
 @WebServlet(name = "requestParamServlet", urlPatterns = "/request-param")
 public class RequestParamServlet extends HttpServlet {
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse
-            resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("[전체 파라미터 조회] - start");
         /*
         Enumeration<String> parameterNames = request.getParameterNames();
@@ -44,6 +43,6 @@ public class RequestParamServlet extends HttpServlet {
         for (String name : usernames) {
             System.out.println("username=" + name);
         }
-        resp.getWriter().write("ok");
+        response.getWriter().write("ok");
     }
 }
