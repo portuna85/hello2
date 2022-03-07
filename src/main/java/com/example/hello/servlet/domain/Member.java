@@ -20,4 +20,12 @@ public class Member {
     public Long getId() {
         return id;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public int getAge() {
+        return age;
+    }
 }

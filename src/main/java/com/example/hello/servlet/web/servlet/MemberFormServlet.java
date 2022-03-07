@@ -22,6 +22,7 @@ public class MemberFormServlet extends HttpServlet {
         response.setCharacterEncoding(StandardCharsets.UTF_8.name());
         PrintWriter writer = response.getWriter();
 
+
         writer.write("<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "<head>\n" +
