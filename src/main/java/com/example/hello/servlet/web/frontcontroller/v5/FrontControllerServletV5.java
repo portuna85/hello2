@@ -18,10 +18,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "frontControllerServletV5", urlPatterns = "/frontcontroller/v5/*")
+@WebServlet(name = "frontControllerServletV5", urlPatterns = "/front-controller/v5/*")
 public class FrontControllerServletV5 extends HttpServlet {
 
-    private Map<String, Object> handlerMappingMap = new HashMap<>();
+    private final Map<String, Object> handlerMappingMap = new HashMap<>();
     private final List<MyHandlerAdapter> handlerAdapters = new ArrayList<>();
 
     public FrontControllerServletV5() {
@@ -30,9 +30,9 @@ public class FrontControllerServletV5 extends HttpServlet {
     }
 
     private void initHandlerMappingMap() {
-        handlerMappingMap.put("/front-controller/v3/members/new-form", new MemberFormControllerV3());
-        handlerMappingMap.put("/front-controller/v3/members/save", new MemberSaveControllerV3());
-        handlerMappingMap.put("/front-controller/v3/members", new MemberListControllerV3());
+        handlerMappingMap.put("/front-controller/v5/v3/members/new-form", new MemberFormControllerV3());
+        handlerMappingMap.put("/front-controller/v5/v3/members/save", new MemberSaveControllerV3());
+        handlerMappingMap.put("/front-controller/v5/v3/members", new MemberListControllerV3());
     }
 
     private void initHandlerAdapters() {
@@ -42,7 +42,7 @@ public class FrontControllerServletV5 extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Object handler = getHanler(request);
+        Object handler = getHandler(request);
 
         if (handler == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -53,15 +53,9 @@ public class FrontControllerServletV5 extends HttpServlet {
 
         ModelView mv = adapter.handle(request, response, handler);
 
-
-        String viewName = mv.getViewName();
-        MyView view = viewResolver(viewName);
+        MyView view = viewResolver(mv.getViewName());
 
         view.render(mv.getModel(), request, response);
-    }
-
-    private MyView viewResolver(String viewName) {
-        return new MyView("/WEB-INF/views/" + viewName + ".jsp");
     }
 
     private MyHandlerAdapter getHandlerAdapter(Object handler) {
@@ -74,8 +68,12 @@ public class FrontControllerServletV5 extends HttpServlet {
         throw new IllegalArgumentException("handler adapter를 찾을수 없습니다. : " + handler);
     }
 
-    private Object getHanler(HttpServletRequest request) {
+    private Object getHandler(HttpServletRequest request) {
         String requestURI = request.getRequestURI();
         return handlerMappingMap.get(requestURI);
+    }
+
+    private MyView viewResolver(String viewName) {
+        return new MyView("/WEB-INF/views/" + viewName + ".jsp");
     }
 }
