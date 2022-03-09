@@ -1,6 +1,6 @@
 package com.example.hello.servlet.web.frontcontroller.v5.adapter;
 
-import com.example.hello.servlet.web.frontcontroller.ModelView;
+import com.example.hello.servlet.web.frontcontroller.ModelAndVies;
 import com.example.hello.servlet.web.frontcontroller.v3.ControllerV3;
 import com.example.hello.servlet.web.frontcontroller.v5.MyHandlerAdapter;
 
@@ -18,11 +18,11 @@ public class ControllerV3HandlerAdapter implements MyHandlerAdapter {
     }
 
     @Override
-    public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
+    public ModelAndVies handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
         ControllerV3 controller = (ControllerV3) handler;
         Map<String, String> paramMap = createParamMap(request);
 
-        ModelView mv = controller.process(paramMap);
+        ModelAndVies mv = controller.process(paramMap);
         return mv;
     }
 

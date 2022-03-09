@@ -1,6 +1,6 @@
 package com.example.hello.servlet.web.frontcontroller.v3;
 
-import com.example.hello.servlet.web.frontcontroller.ModelView;
+import com.example.hello.servlet.web.frontcontroller.ModelAndVies;
 import com.example.hello.servlet.web.frontcontroller.v1.MyView;
 
 import com.example.hello.servlet.web.frontcontroller.v3.controller.MemberFormControllerV3;
@@ -37,7 +37,7 @@ public class FrontControllerServletV3 extends HttpServlet {
 
         // paramMap
         Map<String, String> paramMap = createParamMap(request);
-        ModelView mv = controller.process(paramMap);
+        ModelAndVies mv = controller.process(paramMap);
 
         String viewName = mv.getViewName();
         MyView view = viewResolver(viewName);
