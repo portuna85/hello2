@@ -2,13 +2,11 @@ package com.example.hello.servlet.web.springmvc.v1;
 
 import com.example.hello.servlet.domain.Member;
 import com.example.hello.servlet.domain.MemberRepository;
-import com.example.hello.servlet.web.frontcontroller.ModelAndVies;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class SpringMemberListControllerV1 {
@@ -23,5 +21,4 @@ public class SpringMemberListControllerV1 {
         mv.addObject("members", members);
         return mv;
     }
-
 }
